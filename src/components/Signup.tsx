@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const App = () => {
-	const navigate = useNavigate();
-	const [formState, setFormState] = useState({
-		login: true,
-		email: "",
-		password: "",
-		name: "",
-	});
-
+const Signup = () => {
 	return (
 		<div>
 			<section className="bg-gray-50 dark:bg-gray-900">
@@ -17,7 +9,7 @@ const App = () => {
 					<div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
 						<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
 							<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-								Sign in to your account
+								Create an account
 							</h1>
 							<form className="space-y-4 md:space-y-6" action="#">
 								<div>
@@ -86,12 +78,12 @@ const App = () => {
 									Sign in
 								</button>
 								<p className="text-sm font-light text-gray-500 dark:text-gray-400">
-									Don’t have an account yet?{" "}
+									Already have an account?{" "}
 									<Link
-										to={"/signup"}
+										to={"/login"}
 										className="font-medium text-primary-600 hover:underline dark:text-primary-500"
 									>
-										Sign up
+										Login
 									</Link>
 								</p>
 							</form>
@@ -103,4 +95,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default Signup;
