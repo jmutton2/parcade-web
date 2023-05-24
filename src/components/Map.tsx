@@ -21,8 +21,8 @@ const mapOptions = {
 	mapTypeControl: false, // Disable map type control
 };
 
-const apiKey = "";
-const API_KEY = "";
+const VITE_GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const VITE_TOMTOM_SEARCH_API_KEY = import.meta.env.VITE_TOMTOM_SEARCH_API_KEY;
 
 function Map() {
 	const [query, setQuery] = useState({
@@ -76,12 +76,11 @@ function Map() {
 
 			// Send the search query to the server
 			fetch(
-				`https://api.tomtom.com/search/2/search/${text}.json?key=${API_KEY}&language=en-US&countrySet=CA,US&typehead=true&idxSet=PAD,Addr,POI`
+				`https://api.tomtom.com/search/2/search/${text}.json?key=${VITE_TOMTOM_SEARCH_API_KEY}&language=en-US&countrySet=CA,US&typehead=true&idxSet=PAD,Addr,POI`
 			)
 				.then((res) => res.json())
 				.then((res) => {
 					setQuery(res);
-					console.log(res);
 				});
 		}, 300),
 		[]
@@ -93,7 +92,7 @@ function Map() {
 
 	return (
 		<div className="h-[70vh] sm:h-[100vh] w-[100vw]">
-			<LoadScript googleMapsApiKey={apiKey}>
+			<LoadScript googleMapsApiKey={VITE_GOOGLE_MAPS_API_KEY}>
 				<GoogleMap
 					mapContainerStyle={containerStyle}
 					center={center}
