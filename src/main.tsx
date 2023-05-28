@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import Signup from "./components/Signup.tsx";
 import Login from "./components/Login.tsx";
+import Map from "./components/Map.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
@@ -15,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 				<Routes>
 					<Route path="/signup" element={<Signup />} />
 					<Route path="/login" element={<Login />} />
-					<Route path="/" element={<Login />} />
+					<Route path="/" element={<Map />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
